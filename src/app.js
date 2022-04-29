@@ -3,6 +3,7 @@ import morgan from 'morgan'
 import pkg from '../package.json'
 import courtRoutes from './routes/court.routes'
 import authRoutes from './routes/auth.routes'
+import roleRoutes from './routes/role.routes'
 import { createRoles } from './libs/initialSetup'
 
 
@@ -24,6 +25,7 @@ app.get('/', (req, res) => {
 
 app.use('/api/courts',courtRoutes);
 app.use('/api/auth',authRoutes);
+app.use('/api/roles',roleRoutes);
 
 
 
