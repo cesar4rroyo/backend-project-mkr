@@ -1,7 +1,7 @@
-import {Schema, model} from "mongoose"
+import mongoose from "mongoose";
 
 
-const courtSchema = new Schema({
+const courtSchema = mongoose.Schema({
     name: {
         type: String,
         required: true
@@ -16,5 +16,5 @@ const courtSchema = new Schema({
     versionKey: false
  });
 
- export default model("Court", courtSchema);
+ export default mongoose.model("Court", courtSchema);
 

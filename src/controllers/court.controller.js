@@ -1,5 +1,4 @@
-import Court from "../models/Court"
-import { createCourtService, getCourtByIdService, getCourtsService } from "../services/court.service"
+import { createCourtService, getCourtByIdService, getCourtsService } from "../services/court.service.js"
 
 
 export const createCourt = async (req, res) => {

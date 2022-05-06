@@ -1,5 +1,4 @@
-import User from "../models/User";
-import { getToken, handleComparePassword, singInService, singUpService } from "../services/auth.services";
+import { singInService, singUpService } from "../services/auth.services.js";
 
 export const signUp = async (req, res) => {
     try {

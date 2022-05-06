@@ -1,4 +1,4 @@
-import Court from "../models/Court"
+import Court from "../models/Court.js"
 
 
 export async function createCourtService(req){

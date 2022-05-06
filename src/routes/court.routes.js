@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { createCourt, deleteCourtById, getCourtById, getCourts, updateCourtById } from "../controllers/court.controller";
-import { isAdmin, verifyToken } from "../middlewares";
+import { createCourt, deleteCourtById, getCourtById, getCourts, updateCourtById } from "../controllers/court.controller.js";
+import { isAdmin, verifyToken } from "../middlewares/index.js";
 
 const router = Router()
 router.post('/', [verifyToken, isAdmin] ,createCourt)

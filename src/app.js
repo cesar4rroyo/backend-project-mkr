@@ -1,14 +1,20 @@
 import express from 'express'
 import morgan from 'morgan'
-import pkg from '../package.json'
-import courtRoutes from './routes/court.routes'
-import authRoutes from './routes/auth.routes'
-import roleRoutes from './routes/role.routes'
-import { createRoles } from './libs/initialSetup'
+import courtRoutes from './routes/court.routes.js'
+import authRoutes from './routes/auth.routes.js'
+import roleRoutes from './routes/role.routes.js'
+import { createRoles } from './libs/initialSetup.js'
 
 
 const app = express()
 createRoles()
+
+const pkg = {
+    name: 'booking-gool',
+    version: '1.0.0',
+    author: 'cesar4rroyo',
+    description: 'Web app to book soccer fields'
+}
 
 app.set('pkg', pkg)
 app.use(morgan('dev'))

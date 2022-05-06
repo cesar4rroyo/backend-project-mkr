@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
-import config from "../config";
-import Role from "../models/Role";
-import User from "../models/User";
+import config from "../config.js";
+import Role from "../models/Role.js";
+import User from "../models/User.js";
 
 export const verifyToken = async (req, res, next) => {
     try {

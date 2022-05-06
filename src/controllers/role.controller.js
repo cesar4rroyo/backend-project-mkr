@@ -1,7 +1,7 @@
-import { createRoleService, getRolesService } from "../services/role.service"
+import { createRoleService, getRolesService } from "../services/role.service.js"
 
 
-export const createRole = (req, res) => {
+export const createRole = async (req, res) => {
     try {
         const role = await createRoleService(req)
         res.status(201).json({

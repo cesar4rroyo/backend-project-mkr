@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { signIn, signUp } from "../controllers/auth.controller";
-import { checkDuplicateUsernameOrEmail, checkRoleExists } from "../middlewares";
+import { signIn, signUp } from "../controllers/auth.controller.js";
+import { checkDuplicateUsernameOrEmail, checkRoleExists } from "../middlewares/index.js";
 
 const router = Router()
 
