@@ -10,6 +10,14 @@ const courtSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    staus : {
+        type: String,
+        default: "DISPONIBLE"  // DISPONIBLES / OCUPADA / RESERVADA / MANTENIMIENTO
+    },
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+    }
 },
  {
     timestamps: true,

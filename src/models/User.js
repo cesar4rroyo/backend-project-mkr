@@ -1,7 +1,7 @@
 import bcrypt from "bcryptjs";
 import mongoose from "mongoose";
 
-const userSchema = mongoose.Schema({
+const userSchema = mongoose.Schema({ //COMPANY O BUSSNISS SCHEMA
     username: {
         type: String,
         required: true,
@@ -16,6 +16,10 @@ const userSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    address: {
+        type: String,
+        required: true
+    },
     phone: {
         type: String,
         required: true
@@ -24,14 +28,10 @@ const userSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    lastName: {
-        type: String,
-        required: true
-    },
     avatarUrl: {
         type: String,
     },
-    dni: {
+    documentNumber: {  //RUC O DNI
         type: String,
         required: true
     },
