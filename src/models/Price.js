@@ -6,7 +6,7 @@ const priceSchema = mongoose.Schema({
         type: Number,
         required: true
     },
-    schedule : {
+    schedule : {  // MAÑANA - TARDE - NOCHE
         type: String,
         required: true
     },
