@@ -31,6 +31,9 @@ const userSchema = mongoose.Schema({ //COMPANY O BUSSNISS SCHEMA
     avatarUrl: {
         type: String,
     },
+    photoCloudinaryId: { 
+        type: String 
+    },
     documentNumber: {  //RUC O DNI
         type: String,
         required: true

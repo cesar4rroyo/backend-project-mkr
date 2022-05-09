@@ -2,6 +2,7 @@ import jwt from "jsonwebtoken";
 import config from "../config.js";
 import Role from "../models/Role.js";
 import User from "../models/User.js";
+import cloudinary, { uploads } from '../utils/cloudinary.js'
 
 export const getToken = async (id) => {
     return jwt.sign({ id }, config.SECRET, {
@@ -77,3 +78,42 @@ export const handleComparePassword = async (password, recievedPassword) => {
     const isPasswordCorrect = await User.comparePasswords( password, recievedPassword)
     return isPasswordCorrect;
 }
+
+export async function findUser(id) {
+    const user = await User.findById(id).populate("roles")
+    return user
+}
+
+export async function getUsers() {
+    const users = await User.find().populate("roles")
+    return users
+}
+
+export async function updateUser(query, update) {
+    const uploader = async (path) => await uploads(path, 'profile-images')
+  
+    try {
+      const userFinded = await User.findById(query)
+      if (userFinded.photoCloudinaryId) {
+        await cloudinary.uploader.destroy(userFinded.photoCloudinaryId)
+      }
+      const { url, cloudinaryId } = await uploader(update.file.path)
+      const user = await User.findByIdAndUpdate(
+        query,
+        {
+          ...update.body,
+          avatarUrl: url,
+          photoCloudinaryId: cloudinaryId
+        },
+        { new: true }
+      )
+      return user
+    } catch (error) {
+      throw new Error(error)
+    }
+  }
+
+  export async function deleteUser(id) {
+    await User.findByIdAndDelete(id)
+    return true
+  }

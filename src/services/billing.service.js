@@ -2,19 +2,24 @@ import Billing from "../models/Billing.js"
 
 
 export async function createBillingService(req){
-    const billing = new Billing(req.body);
-    await billing.save();
+    const billing = await Billing.create(req.body);
     return billing;
 }
 
 export async function getBillingsService(){
-    const billings = await Billing.find();
+    const billings = await Billing.find().populate({
+        path: 'user',
+        select: 'name address email phone avatarUrl'
+    });
     return billings;
 }
 
 export async function getBillingByIdService(req){
     const {billingId} = req.params;
-    const billing = await Billing.findById(billingId);
+    const billing = await Billing.findById(billingId).populate({
+        path: 'user',
+        select: 'name address email phone avatarUrl'
+    });
     return billing;
 }
 

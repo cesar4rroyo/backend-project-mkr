@@ -14,6 +14,9 @@ const courtSchema = mongoose.Schema({
         type: String,
         default: "DISPONIBLE"  // DISPONIBLES / OCUPADA / RESERVADA / MANTENIMIENTO
     },
+    imageRefUrl:{
+        type: String,
+    },
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
