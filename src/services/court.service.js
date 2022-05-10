@@ -8,7 +8,7 @@ export async function createCourtService(req){
         {
             ...req.body,
             status: 'DISPONIBLE',
-            user: req.user,
+            user: req.userId,
             imageRefUrl: url
         }
     )

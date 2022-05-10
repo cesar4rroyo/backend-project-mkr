@@ -79,12 +79,12 @@ export const handleComparePassword = async (password, recievedPassword) => {
     return isPasswordCorrect;
 }
 
-export async function findUser(id) {
+export async function findUserService(id) {
     const user = await User.findById(id).populate("roles")
     return user
 }
 
-export async function getUsers() {
+export async function getUsersService() {
     const users = await User.find().populate("roles")
     return users
 }
