@@ -3,6 +3,10 @@ import morgan from 'morgan'
 import courtRoutes from './routes/court.routes.js'
 import authRoutes from './routes/auth.routes.js'
 import roleRoutes from './routes/role.routes.js'
+import bookingRoutes from './routes/booking.routes.js'
+import billingRoutes from './routes/billing.routes.js'
+import pricesRoutes from './routes/price.routes.js'
+import processRoutes from './routes/process.routes.js'
 import { createRoles } from './libs/initialSetup.js'
 
 
@@ -32,6 +36,10 @@ app.get('/', (req, res) => {
 app.use('/api/courts',courtRoutes);
 app.use('/api/auth',authRoutes);
 app.use('/api/roles',roleRoutes);
+app.use('/api/bookings',bookingRoutes);
+app.use('/api/billing',billingRoutes);
+app.use('/api/prices',pricesRoutes);
+app.use('/api/process',processRoutes);
 
 
 
