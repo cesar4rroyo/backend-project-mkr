@@ -1,4 +1,4 @@
-import { getUsersService, singInService, singUpService } from "../services/auth.services.js";
+import { getUsersService, singInService, singUpService, updateUserService } from "../services/auth.services.js";
 
 export const signUp = async (req, res) => {
     try {
@@ -41,6 +41,21 @@ export const getUsers = async (req, res) => {
     } catch (error) {
         res.status(500).json({
             message: "Error getting users",
+            error
+        })
+    }
+}
+
+export const updateUser = async (req, res) => {
+    try {
+        const user = await updateUserService(req.params.userId, req);
+        res.status(200).json({
+            message: "User updated successfully",
+            user
+        });
+    } catch (error) {
+        res.status(500).json({
+            message: "Error updating user: " + error.message,
             error
         })
     }

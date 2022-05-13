@@ -89,7 +89,7 @@ export async function getUsersService() {
     return users
 }
 
-export async function updateUser(query, update) {
+export async function updateUserService(query, update) {
     const uploader = async (path) => await uploads(path, 'profile-images')
   
     try {
